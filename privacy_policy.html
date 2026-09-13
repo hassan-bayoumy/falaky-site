@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Falaky — Privacy Policy · سياسة الخصوصية</title>
+<style>
+  :root { --ink:#1c1830; --muted:#5a5470; --accent:#4a3fbf; --bg:#faf9ff; --card:#ffffff; --line:#e6e2f5; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink);
+         font:16px/1.65 system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans Arabic", sans-serif; }
+  main { max-width:760px; margin:0 auto; padding:32px 20px 64px; }
+  h1 { font-size:1.7rem; margin:0 0 4px; }
+  h2 { font-size:1.15rem; margin:32px 0 8px; color:var(--accent); }
+  p, li { color:var(--muted); }
+  strong { color:var(--ink); }
+  .updated { font-size:.85rem; color:var(--muted); margin-bottom:24px; }
+  section.lang { background:var(--card); border:1px solid var(--line); border-radius:12px;
+                 padding:24px 28px; margin-bottom:32px; }
+  [dir="rtl"] { text-align:right; }
+  a { color:var(--accent); }
+  ul { padding-inline-start:1.2em; }
+</style>
+</head>
+<body>
+<main>
+
+<!-- ======================== ENGLISH ======================== -->
+<section class="lang" lang="en">
+<h1>Falaky — Privacy Policy</h1>
+<p class="updated">Last updated: 10 August 2026 · Applies to the Falaky Android, iOS, web and desktop apps (including the Falaky Staging and Falaky Dev test builds).</p>
+
+<p>Falaky (فلكي) is a personal life-management app. Our design principle is simple:
+<strong>your data is yours.</strong> It is processed on your device wherever possible, synced only
+to your own account, never sold, and never used for advertising.</p>
+
+<h2>1. Data we collect</h2>
+<ul>
+  <li><strong>Account data:</strong> your email address (and, if you sign in with Google, the basic
+      profile Google shares for sign-in), used solely to create and secure your account. Passwords
+      are handled by our authentication provider (Supabase Auth) and are never visible to us.</li>
+  <li><strong>Your content:</strong> the financial records you create — accounts, transactions,
+      categories, shared-expense groups, settlements, and the names of people you add. This content
+      is stored <strong>encrypted on your device</strong> and synced to our backend (a Supabase
+      project we operate) so it follows you across your devices. Server-side access is isolated per
+      user: our database enforces row-level security so an account can only ever read its own rows.</li>
+  <li><strong>Crash reports (technical):</strong> some builds send crash reports (via Sentry) so we
+      can fix bugs. These contain technical stack traces only — they are configured to exclude your
+      content, amounts, messages, and identifying information.</li>
+</ul>
+<p>We collect <strong>no advertising identifiers, no analytics profiles, and no location data.</strong></p>
+
+<h2>2. Transaction import (bank messages and payment notifications)</h2>
+<p>Falaky can optionally turn bank messages into transactions. This is <strong>off by default</strong>
+and only works when you switch it on:</p>
+<ul>
+  <li><strong>Paste:</strong> you paste a bank SMS yourself; it is parsed on your device.</li>
+  <li><strong>Notification capture</strong> (where available): after you grant Android’s
+      Notification access, Falaky reads payment notifications from wallet apps (Google Wallet,
+      Samsung Wallet) and messaging apps — nothing else — to suggest transactions.</li>
+</ul>
+<p>In all cases: parsing happens <strong>entirely on your device</strong>; the text of your messages
+and notifications is <strong>never uploaded to our servers</strong>, never logged, and captured text
+is deleted from the staging area as soon as you confirm or dismiss a suggestion. Every suggested
+transaction requires your explicit confirmation before it enters your records.</p>
+
+<h2>3. What we never do</h2>
+<ul>
+  <li>We never sell your data or share it with third parties for marketing.</li>
+  <li>We never read your messages or notifications without your explicit opt-in.</li>
+  <li>We never use your financial content for advertising or profiling.</li>
+</ul>
+
+<h2>4. Service providers</h2>
+<p>We rely on a small number of processors strictly to run the service: <strong>Supabase</strong>
+(authentication, database, sync) and <strong>Sentry</strong> (crash reporting, technical data only).
+Google sign-in, if you choose it, is governed by Google’s own terms.</p>
+
+<h2>5. Security</h2>
+<p>The local database is encrypted at rest (SQLCipher). Sync uses TLS. Authentication tokens are
+kept in your device’s secure storage (Keychain/Keystore), and two-factor authentication (TOTP) is
+available in Settings.</p>
+
+<h2>6. Your rights</h2>
+<p>You can delete your account — and with it everything stored on our servers — from Settings →
+Account → Delete account; the copy on your device is wiped at the same time. You can request a copy
+of your data at any time by emailing us at the address below, and an in-app export is being added to
+Settings. We aim to honor requests within 30 days.</p>
+
+<h2>7. Children</h2>
+<p>Falaky is not directed at children under 13, and we do not knowingly collect data from them.</p>
+
+<h2>8. Changes &amp; contact</h2>
+<p>If this policy changes, the "last updated" date above changes with it, and material changes will
+be announced in the app. Questions or requests:
+<a href="mailto:hassan.bayo.dev@gmail.com">hassan.bayo.dev@gmail.com</a>.</p>
+</section>
+
+<!-- ======================== ARABIC ======================== -->
+<section class="lang" lang="ar" dir="rtl">
+<h1>فلكي — سياسة الخصوصية</h1>
+<p class="updated">آخر تحديث: 10 أغسطس 2026 · تسري على تطبيقات فلكي لأندرويد وiOS والويب وسطح المكتب (بما في ذلك نسختا الاختبار Falaky Staging وFalaky Dev).</p>
+
+<p>«فلكي» تطبيق شخصي لإدارة الحياة. مبدأنا بسيط: <strong>بياناتك ملكك.</strong> تُعالَج على جهازك
+كلما أمكن، ولا تُزامَن إلا إلى حسابك أنت، ولا تُباع أبدًا، ولا تُستخدم للإعلانات.</p>
+
+<h2>١. البيانات التي نجمعها</h2>
+<ul>
+  <li><strong>بيانات الحساب:</strong> بريدك الإلكتروني (وإن سجّلت الدخول بجوجل، الملف الأساسي الذي
+      تشاركه جوجل لتسجيل الدخول)، وتُستخدم فقط لإنشاء حسابك وتأمينه. كلمات المرور يديرها مزوّد
+      المصادقة (Supabase Auth) ولا نطّلع عليها أبدًا.</li>
+  <li><strong>محتواك:</strong> السجلات المالية التي تنشئها — الحسابات والمعاملات والفئات ومجموعات
+      المصاريف المشتركة والتسويات وأسماء الأشخاص الذين تضيفهم. يُخزَّن هذا المحتوى
+      <strong>مشفَّرًا على جهازك</strong> ويُزامَن إلى خادمنا (مشروع Supabase نديره) ليتبعك عبر
+      أجهزتك. والوصول على الخادم معزول لكل مستخدم: قاعدة البيانات تفرض أمان مستوى الصفوف بحيث لا
+      يقرأ أي حساب إلا صفوفه هو.</li>
+  <li><strong>تقارير الأعطال (تقنية):</strong> قد ترسل بعض النسخ تقارير أعطال (عبر Sentry) لإصلاح
+      الأخطاء. تحتوي هذه التقارير على تتبّع تقني فقط، وهي مضبوطة بحيث تستثني محتواك ومبالغك
+      ورسائلك وأي معلومات تعريفية.</li>
+</ul>
+<p>لا نجمع <strong>أي مُعرِّفات إعلانية ولا ملفات تحليلات ولا بيانات موقع.</strong></p>
+
+<h2>٢. استيراد المعاملات (رسائل البنك وإشعارات الدفع)</h2>
+<p>يستطيع فلكي اختياريًا تحويل رسائل البنك إلى معاملات. هذه الميزة <strong>متوقفة افتراضيًا</strong>
+ولا تعمل إلا إذا فعّلتها بنفسك:</p>
+<ul>
+  <li><strong>اللصق:</strong> تلصق رسالة البنك بنفسك، وتُقرأ على جهازك.</li>
+  <li><strong>التقاط الإشعارات</strong> (حيثما يتوفر): بعد منحك «الوصول إلى الإشعارات» في أندرويد،
+      يقرأ فلكي إشعارات الدفع من تطبيقات المحفظة (Google Wallet وSamsung Wallet) وتطبيقات الرسائل —
+      ولا شيء غيرها — لاقتراح معاملات.</li>
+</ul>
+<p>في كل الحالات: تتم القراءة <strong>على جهازك بالكامل</strong>؛ ونص رسائلك وإشعاراتك
+<strong>لا يُرفَع أبدًا إلى خوادمنا</strong> ولا يُسجَّل، ويُحذف النص الملتقط من منطقة الانتظار فور
+تأكيدك أو تجاهلك للاقتراح. وكل معاملة مقترحة تتطلب تأكيدك الصريح قبل دخولها سجلاتك.</p>
+
+<h2>٣. ما لا نفعله أبدًا</h2>
+<ul>
+  <li>لا نبيع بياناتك ولا نشاركها مع أطراف ثالثة للتسويق.</li>
+  <li>لا نقرأ رسائلك أو إشعاراتك دون موافقتك الصريحة.</li>
+  <li>لا نستخدم محتواك المالي للإعلانات أو التنميط.</li>
+</ul>
+
+<h2>٤. مزوّدو الخدمة</h2>
+<p>نعتمد على عدد محدود من المعالجات لتشغيل الخدمة فقط: <strong>Supabase</strong> (المصادقة وقاعدة
+البيانات والمزامنة) و<strong>Sentry</strong> (تقارير الأعطال، بيانات تقنية فقط). وتسجيل الدخول
+بجوجل، إن اخترته، تحكمه شروط جوجل.</p>
+
+<h2>٥. الأمان</h2>
+<p>قاعدة البيانات المحلية مشفَّرة (SQLCipher)، والمزامنة عبر TLS، ورموز المصادقة محفوظة في التخزين
+الآمن لجهازك (Keychain/Keystore)، والمصادقة الثنائية (TOTP) متاحة من الإعدادات.</p>
+
+<h2>٦. حقوقك</h2>
+<p>يمكنك حذف حسابك — ومعه كل ما هو مخزَّن على خوادمنا — من الإعدادات ← الحساب ← حذف الحساب،
+وتُمسح النسخة الموجودة على جهازك في الوقت نفسه. ويمكنك في أي وقت طلب نسخة من بياناتك بمراسلتنا على
+البريد أدناه، ونعمل على إضافة تصدير البيانات داخل التطبيق. نسعى لتنفيذ الطلبات خلال 30 يومًا.</p>
+
+<h2>٧. الأطفال</h2>
+<p>فلكي غير موجّه للأطفال دون 13 عامًا، ولا نجمع بياناتهم عن قصد.</p>
+
+<h2>٨. التغييرات والتواصل</h2>
+<p>إذا تغيّرت هذه السياسة يتغيّر معها تاريخ «آخر تحديث» أعلاه، وتُعلَن التغييرات الجوهرية داخل
+التطبيق. للأسئلة والطلبات:
+<a href="mailto:hassan.bayo.dev@gmail.com">hassan.bayo.dev@gmail.com</a>.</p>
+</section>
+
+</main>
+</body>
+</html>

@@ -28,7 +28,7 @@
 <!-- ======================== ENGLISH ======================== -->
 <section class="lang" lang="en">
 <h1>Falaky — Privacy Policy</h1>
-<p class="updated">Last updated: 10 August 2026 · Applies to the Falaky Android, iOS, web and desktop apps (including the Falaky Staging and Falaky Dev test builds).</p>
+<p class="updated">Last updated: 17 October 2026 · Applies to the Falaky Android, iOS, web and desktop apps, to Falaky Vast (section 3), and to the Falaky Staging and Falaky Dev test builds.</p>
 
 <p>Falaky (فلكي) is a personal life-management app. Our design principle is simple:
 <strong>your data is yours.</strong> It is processed on your device wherever possible, synced only
@@ -44,53 +44,122 @@ to your own account, never sold, and never used for advertising.</p>
       is stored <strong>encrypted on your device</strong> and synced to our backend (a Supabase
       project we operate) so it follows you across your devices. Server-side access is isolated per
       user: our database enforces row-level security so an account can only ever read its own rows.</li>
+  <li><strong>A transaction's place (optional):</strong> you can note where a transaction happened —
+      a name, city and country you type or that a bank message states, and, only when you tap
+      “Use my current location” with the app open, your phone's location at that moment. It is
+      stored with that transaction and synced like the rest of your content. Falaky never reads
+      your location in the background, never on its own, and a transaction saves the same
+      without a place.</li>
   <li><strong>Crash reports (technical):</strong> some builds send crash reports (via Sentry) so we
       can fix bugs. These contain technical stack traces only — they are configured to exclude your
       content, amounts, messages, and identifying information.</li>
 </ul>
-<p>We collect <strong>no advertising identifiers, no analytics profiles, and no location data.</strong></p>
+<p>We collect <strong>no advertising identifiers and no analytics profiles</strong>, and no location
+data beyond the places you choose to attach to a transaction.</p>
 
 <h2>2. Transaction import (bank messages and payment notifications)</h2>
 <p>Falaky can optionally turn bank messages into transactions. This is <strong>off by default</strong>
 and only works when you switch it on:</p>
 <ul>
   <li><strong>Paste:</strong> you paste a bank SMS yourself; it is parsed on your device.</li>
+  <li><strong>Share an e-mail</strong> (while “Bank e-mails” is on): you share a bank’s e-mail to
+      Falaky from your mail app; its subject and text are read on your device, like a pasted SMS.</li>
   <li><strong>Notification capture</strong> (where available): after you grant Android’s
       Notification access, Falaky reads payment notifications from wallet apps (Google Wallet,
       Samsung Wallet) and messaging apps — nothing else — to suggest transactions.</li>
+  <li><strong>A notification for each payment found</strong> (optional, per source, off by default):
+      when you turn it on in Settings, Falaky reads a captured payment <strong>the moment it
+      arrives</strong> — briefly, in the background, on your device — and shows one notification for
+      it, from which you can import it, keep it for later or dismiss it. Nothing is uploaded, nothing
+      syncs from the background, and a locked phone’s screen never shows the amount.</li>
 </ul>
 <p>In all cases: parsing happens <strong>entirely on your device</strong>; the text of your messages
-and notifications is <strong>never uploaded to our servers</strong>, never logged, and captured text
-is deleted from the staging area as soon as you confirm or dismiss a suggestion. Every suggested
-transaction requires your explicit confirmation before it enters your records.</p>
+and notifications is <strong>never uploaded to our servers</strong> and never logged. When you
+confirm a suggestion, its full text is kept <strong>on that device only</strong>, with the
+transaction it became, so you can read it again there; it is deleted with the transaction, and a
+dismissed suggestion's text is deleted for good after 30 days. The details read from the message —
+such as the sender, the card ending shown, the merchant, the payment method, the place and the
+limit stated — are saved with the transaction and synced like the rest of your content. Every
+suggested transaction requires your explicit confirmation before it enters your records.</p>
+<p><strong>Purchases in another currency.</strong> When a bank message states only the foreign
+amount, Falaky estimates what your bank will charge from a rate and the fees you entered for the
+account, marks it “≈ est.”, and replaces it when the bank's own figure is known. The rate comes
+first from your own earlier messages, on your device; otherwise Falaky asks a public reference-rate
+service (<strong>Exchange Rate API</strong>, open endpoint) once a day for that currency. That request
+carries <strong>only the currency code</strong> — never an amount, an account, your identity or any
+cookie — and the answer is cached on your device so estimates work offline.</p>
 
-<h2>3. What we never do</h2>
+<p><strong>Bills and their items.</strong> You can keep a bill’s photos or PDF with a transaction or a
+group expense: they stay <strong>on your device only</strong>, inside its encrypted database, and are
+never synced. The items you add (name, count, price, category) are part of your transactions and sync
+with them. In Falaky Vast and the test builds you can also have a bill’s items read for you: only
+when you tap “Send to Claude to read the items”, and only after you allow it once, that bill’s pages —
+and nothing else — go through our server to <strong>Anthropic</strong>’s Claude, which reads them and
+answers with the lines it found. Falaky does not keep the pages after the answer, and nothing from the
+vault or health is ever sent. You can withdraw this in Settings → Privacy.</p>
+
+<h2 id="vast">3. Falaky Vast</h2>
+<p>Falaky Vast is a build of Falaky <strong>distributed outside Google Play</strong>, by link from
+<a href="https://falaky.app/vast">falaky.app/vast</a>. It is the same app, with the same account, the
+same data and the same backend as the Falaky app from Google Play — a change made in one appears in
+the other — plus what that build does not include:</p>
+<ul>
+  <li><strong>SMS inbox:</strong> after an in-app explanation and Android’s permission prompt, Falaky Vast
+      reads the SMS messages on your phone to find payments. If you say “Not now”, nothing is read.</li>
+  <li><strong>SMS as it arrives:</strong> only while you have turned on notifications for bank SMS
+      (section 2), and after Android’s permission prompt, Falaky Vast reads each new SMS when it arrives,
+      so a payment can be found and notified at once.</li>
+  <li><strong>Payment notifications:</strong> as described in section 2.</li>
+  <li><strong>Apps you pick:</strong> only while you have turned on “Bank app notifications”, and after
+      an in-app explanation, Falaky Vast also reads the notifications of the apps you tick in Settings →
+      Apps to watch — your bank’s app, or a mail app — to find payments in them; anything else in them is
+      dropped. To show you the list to pick from, it reads the names of the apps you can open on your
+      phone, on your device only.</li>
+</ul>
+<p>Messages and notifications are read <strong>on your device only</strong>. A payment message waits
+on the device as a draft until you review it; <strong>only a transaction you confirm</strong> is stored
+in your records and synced to your account. Non-financial messages are never kept, and the text of a
+message <strong>never leaves your phone</strong>.</p>
+<p>Because no store updates it, Falaky Vast checks — at most once a day, and when you open Settings —
+whether a newer build has been published. The check is an ordinary download of one small public file
+from <strong>GitHub</strong>, where Falaky Vast is published: it carries no account, no identifier and
+none of your content, but like any web request it reaches GitHub with your device’s IP address and a
+generic app signature, under GitHub’s own privacy terms. Everything else in this policy applies to Falaky Vast unchanged, including
+your rights in section 7: you can export your data and delete your account from Settings, and the
+deletion covers what either app stored.</p>
+
+<h2>4. What we never do</h2>
 <ul>
   <li>We never sell your data or share it with third parties for marketing.</li>
   <li>We never read your messages or notifications without your explicit opt-in.</li>
   <li>We never use your financial content for advertising or profiling.</li>
 </ul>
 
-<h2>4. Service providers</h2>
+<h2>5. Service providers</h2>
 <p>We rely on a small number of processors strictly to run the service: <strong>Supabase</strong>
 (authentication, database, sync) and <strong>Sentry</strong> (crash reporting, technical data only).
-Google sign-in, if you choose it, is governed by Google’s own terms.</p>
+Falaky Vast is published on <strong>GitHub</strong>, which serves its downloads and its daily update
+check (section 3). Daily reference exchange rates come from <strong>Exchange Rate API</strong>
+(exchangerate-api.com, open endpoint): the request names a currency code and nothing about you
+(section 2). <strong>Anthropic</strong> (Claude) reads a bill’s pages when you ask for it (section 2),
+as a processor: the pages are sent for that reading only. Google sign-in, if you choose it, is
+governed by Google’s own terms.</p>
 
-<h2>5. Security</h2>
+<h2>6. Security</h2>
 <p>The local database is encrypted at rest (SQLCipher). Sync uses TLS. Authentication tokens are
 kept in your device’s secure storage (Keychain/Keystore), and two-factor authentication (TOTP) is
 available in Settings.</p>
 
-<h2>6. Your rights</h2>
+<h2>7. Your rights</h2>
 <p>You can delete your account — and with it everything stored on our servers — from Settings →
 Account → Delete account; the copy on your device is wiped at the same time. You can export everything Falaky
 holds for you as one file from Settings → Your data → Export data, or request a copy by emailing us
 at the address below. We aim to honor requests within 30 days.</p>
 
-<h2>7. Children</h2>
+<h2>8. Children</h2>
 <p>Falaky is not directed at children under 13, and we do not knowingly collect data from them.</p>
 
-<h2>8. Changes &amp; contact</h2>
+<h2>9. Changes &amp; contact</h2>
 <p>If this policy changes, the "last updated" date above changes with it, and material changes will
 be announced in the app. Questions or requests:
 <a href="mailto:hassan.bayo.dev@gmail.com">hassan.bayo.dev@gmail.com</a>.</p>
@@ -99,7 +168,7 @@ be announced in the app. Questions or requests:
 <!-- ======================== ARABIC ======================== -->
 <section class="lang" lang="ar" dir="rtl">
 <h1>فلكي — سياسة الخصوصية</h1>
-<p class="updated">آخر تحديث: 10 أغسطس 2026 · تسري على تطبيقات فلكي لأندرويد وiOS والويب وسطح المكتب (بما في ذلك نسختا الاختبار Falaky Staging وFalaky Dev).</p>
+<p class="updated">آخر تحديث: 17 أكتوبر 2026 · تسري على تطبيقات فلكي لأندرويد وiOS والويب وسطح المكتب، وعلى فلكي Vast (القسم ٣)، وعلى نسختي الاختبار Falaky Staging وFalaky Dev.</p>
 
 <p>«فلكي» تطبيق شخصي لإدارة الحياة. مبدأنا بسيط: <strong>بياناتك ملكك.</strong> تُعالَج على جهازك
 كلما أمكن، ولا تُزامَن إلا إلى حسابك أنت، ولا تُباع أبدًا، ولا تُستخدم للإعلانات.</p>
@@ -114,50 +183,109 @@ be announced in the app. Questions or requests:
       <strong>مشفَّرًا على جهازك</strong> ويُزامَن إلى خادمنا (مشروع Supabase نديره) ليتبعك عبر
       أجهزتك. والوصول على الخادم معزول لكل مستخدم: قاعدة البيانات تفرض أمان مستوى الصفوف بحيث لا
       يقرأ أي حساب إلا صفوفه هو.</li>
+  <li><strong>مكان المعاملة (اختياري):</strong> يمكنك تسجيل مكان حدوث المعاملة — اسمًا ومدينة وبلدًا
+      تكتبها أو تذكرها رسالة البنك، وموقع هاتفك في تلك اللحظة فقط حين تضغط «استخدم موقعي الحالي»
+      والتطبيق مفتوح. يُحفظ مع تلك المعاملة ويُزامَن كبقية محتواك. لا يقرأ فلكي موقعك في الخلفية أبدًا
+      ولا من تلقاء نفسه، وتُحفظ المعاملة كما هي بلا مكان.</li>
   <li><strong>تقارير الأعطال (تقنية):</strong> قد ترسل بعض النسخ تقارير أعطال (عبر Sentry) لإصلاح
       الأخطاء. تحتوي هذه التقارير على تتبّع تقني فقط، وهي مضبوطة بحيث تستثني محتواك ومبالغك
       ورسائلك وأي معلومات تعريفية.</li>
 </ul>
-<p>لا نجمع <strong>أي مُعرِّفات إعلانية ولا ملفات تحليلات ولا بيانات موقع.</strong></p>
+<p>لا نجمع <strong>أي مُعرِّفات إعلانية ولا ملفات تحليلات</strong>، ولا بيانات موقع سوى الأماكن التي
+تختار إرفاقها بمعاملة.</p>
 
 <h2>٢. استيراد المعاملات (رسائل البنك وإشعارات الدفع)</h2>
 <p>يستطيع فلكي اختياريًا تحويل رسائل البنك إلى معاملات. هذه الميزة <strong>متوقفة افتراضيًا</strong>
 ولا تعمل إلا إذا فعّلتها بنفسك:</p>
 <ul>
   <li><strong>اللصق:</strong> تلصق رسالة البنك بنفسك، وتُقرأ على جهازك.</li>
+  <li><strong>مشاركة رسالة إلكترونية</strong> (ما دامت «رسائل البنك الإلكترونية» مفعّلة): تشارك رسالة
+      بنكك الإلكترونية مع فلكي من تطبيق البريد؛ فيُقرأ عنوانها ونصها على جهازك كرسالة ملصقة.</li>
   <li><strong>التقاط الإشعارات</strong> (حيثما يتوفر): بعد منحك «الوصول إلى الإشعارات» في أندرويد،
       يقرأ فلكي إشعارات الدفع من تطبيقات المحفظة (Google Wallet وSamsung Wallet) وتطبيقات الرسائل —
       ولا شيء غيرها — لاقتراح معاملات.</li>
+  <li><strong>إشعار لكل دفعة تُوجد</strong> (اختياري، لكل مصدر، متوقف افتراضيًا): حين تفعّله من
+      الإعدادات، يقرأ فلكي الدفعة الملتقطة <strong>لحظة وصولها</strong> — لوقت قصير، في الخلفية، على
+      جهازك — ويعرض لها إشعارًا واحدًا تستطيع منه استيرادها أو إبقاءها لوقت لاحق أو تجاهلها. لا يُرفَع
+      شيء، ولا يُزامَن شيء من الخلفية، ولا تُظهر شاشة الهاتف المقفل المبلغ أبدًا.</li>
 </ul>
 <p>في كل الحالات: تتم القراءة <strong>على جهازك بالكامل</strong>؛ ونص رسائلك وإشعاراتك
-<strong>لا يُرفَع أبدًا إلى خوادمنا</strong> ولا يُسجَّل، ويُحذف النص الملتقط من منطقة الانتظار فور
-تأكيدك أو تجاهلك للاقتراح. وكل معاملة مقترحة تتطلب تأكيدك الصريح قبل دخولها سجلاتك.</p>
+<strong>لا يُرفَع أبدًا إلى خوادمنا</strong> ولا يُسجَّل. وحين تؤكد اقتراحًا يُحفظ نصه الكامل
+<strong>على ذلك الجهاز فقط</strong> مع المعاملة التي صار إليها، لتقرأه هناك مجددًا؛ ويُحذف مع
+المعاملة، ويُحذف نص الاقتراح الذي تجاهلته نهائيًا بعد 30 يومًا. أما التفاصيل المقروءة من الرسالة —
+كالمرسل وآخر أرقام البطاقة الظاهرة والتاجر وطريقة الدفع والمكان والحد المذكور — فتُحفظ مع المعاملة
+وتُزامَن كبقية محتواك. وكل معاملة مقترحة تتطلب تأكيدك الصريح قبل دخولها سجلاتك.</p>
+<p><strong>المشتريات بعملة أخرى.</strong> حين تذكر رسالة البنك المبلغ الأجنبي فقط، يقدّر فلكي ما
+سيخصمه بنكك من سعر صرف ومن الرسوم التي أدخلتها للحساب، ويعلّمه «≈ تقديري»، ويستبدله برقم البنك
+عند معرفته. يأتي السعر أولًا من رسائلك السابقة على جهازك؛ وإلا يسأل فلكي خدمة أسعار مرجعية عامة
+(<strong>Exchange Rate API</strong>، النقطة المفتوحة) مرة يوميًا عن تلك العملة. لا يحمل ذلك الطلب
+<strong>سوى رمز العملة</strong> — لا مبلغًا ولا حسابًا ولا هويتك ولا أي ملف تعريف — وتُحفظ
+الإجابة على جهازك لتعمل التقديرات دون اتصال.</p>
 
-<h2>٣. ما لا نفعله أبدًا</h2>
+<p><strong>الفواتير وبنودها.</strong> يمكنك حفظ صور الفاتورة أو ملف PDF الخاص بها مع معاملة أو مصروف
+مجموعة: تبقى <strong>على جهازك فقط</strong> داخل قاعدة بياناته المشفّرة، ولا تُزامَن أبدًا. أما البنود التي
+تضيفها (الاسم والعدد والسعر والفئة) فهي جزء من معاملاتك وتُزامَن معها. وفي فلكي Vast ونسختي الاختبار
+يمكنك أيضًا طلب قراءة بنود الفاتورة: فقط حين تضغط «إرسالها إلى Claude لقراءة البنود»، وبعد أن تسمح
+بذلك مرة واحدة، تذهب صفحات تلك الفاتورة — ولا شيء غيرها — عبر خادمنا إلى Claude من
+<strong>Anthropic</strong>، الذي يقرؤها ويجيب بالبنود التي وجدها. لا يحتفظ فلكي بالصفحات بعد الإجابة،
+ولا يُرسل أي شيء من الخزنة أو الصحة أبدًا. ويمكنك سحب ذلك من الإعدادات ← الخصوصية.</p>
+
+<h2 id="vast-ar">٣. فلكي Vast</h2>
+<p>فلكي Vast نسخة من فلكي <strong>تُوزَّع خارج Google Play</strong>، برابط من
+<a href="https://falaky.app/vast">falaky.app/vast</a>. وهي التطبيق نفسه، بالحساب نفسه والبيانات نفسها
+والخادم نفسه كتطبيق فلكي من Google Play — فأي تغيير في أحدهما يظهر في الآخر — ومعه ما لا تتضمنه تلك
+النسخة:</p>
+<ul>
+  <li><strong>صندوق الرسائل النصية:</strong> بعد شرح داخل التطبيق وطلب الإذن من أندرويد، يقرأ فلكي Vast
+      الرسائل النصية على هاتفك لإيجاد المدفوعات. وإن اخترت «ليس الآن» فلا يُقرأ شيء.</li>
+  <li><strong>الرسائل النصية لحظة وصولها:</strong> فقط ما دمت فعّلت الإشعارات لرسائل البنك (القسم ٢)،
+      وبعد طلب الإذن من أندرويد، يقرأ فلكي Vast كل رسالة نصية جديدة حين تصل، لتُوجد الدفعة ويصلك إشعارها
+      في الحال.</li>
+  <li><strong>إشعارات الدفع:</strong> كما هو موضح في القسم ٢.</li>
+  <li><strong>التطبيقات التي تختارها:</strong> فقط ما دمت فعّلت «إشعارات تطبيقات البنوك»، وبعد شرح داخل
+      التطبيق، يقرأ فلكي Vast أيضًا إشعارات التطبيقات التي تحددها في الإعدادات ← تطبيقات يتابعها فلكي —
+      تطبيق بنكك أو تطبيق بريد — ليجد المدفوعات فيها، ويُترك كل ما عدا ذلك. ولكي يعرض لك القائمة التي
+      تختار منها، يقرأ أسماء التطبيقات التي تفتحها على هاتفك، على جهازك فقط.</li>
+</ul>
+<p>تُقرأ الرسائل والإشعارات <strong>على جهازك فقط</strong>. تنتظر رسالة الدفع على الجهاز كمسودة حتى
+تراجعها، و<strong>المعاملة التي تؤكدها وحدها</strong> تُحفظ في سجلاتك وتُزامَن إلى حسابك. ولا يُحتفظ
+بالرسائل غير المالية أبدًا، و<strong>لا يغادر نص أي رسالة هاتفك</strong>.</p>
+<p>ولأنه لا يوجد متجر يحدّثه، يتحقق فلكي Vast — مرة في اليوم على الأكثر، وعند فتح الإعدادات — من صدور
+نسخة أحدث. والتحقق تنزيل عادي لملف عام صغير واحد من <strong>GitHub</strong> حيث يُنشر فلكي Vast: لا يحمل
+حسابًا ولا مُعرِّفًا ولا شيئًا من محتواك، لكنه كأي طلب على الإنترنت يصل إلى GitHub ومعه عنوان IP لجهازك وتوقيع
+عام للتطبيق، وفق شروط الخصوصية الخاصة بـ GitHub. وكل ما في هذه
+السياسة يسري على فلكي Vast دون تغيير، بما في ذلك حقوقك في القسم ٧: يمكنك تصدير بياناتك وحذف حسابك من
+الإعدادات، ويشمل الحذف ما خزّنه أيٌّ من التطبيقين.</p>
+
+<h2>٤. ما لا نفعله أبدًا</h2>
 <ul>
   <li>لا نبيع بياناتك ولا نشاركها مع أطراف ثالثة للتسويق.</li>
   <li>لا نقرأ رسائلك أو إشعاراتك دون موافقتك الصريحة.</li>
   <li>لا نستخدم محتواك المالي للإعلانات أو التنميط.</li>
 </ul>
 
-<h2>٤. مزوّدو الخدمة</h2>
+<h2>٥. مزوّدو الخدمة</h2>
 <p>نعتمد على عدد محدود من المعالجات لتشغيل الخدمة فقط: <strong>Supabase</strong> (المصادقة وقاعدة
-البيانات والمزامنة) و<strong>Sentry</strong> (تقارير الأعطال، بيانات تقنية فقط). وتسجيل الدخول
-بجوجل، إن اخترته، تحكمه شروط جوجل.</p>
+البيانات والمزامنة) و<strong>Sentry</strong> (تقارير الأعطال، بيانات تقنية فقط). ويُنشر فلكي Vast على
+<strong>GitHub</strong> الذي يقدّم تنزيلاته وتحققه اليومي من التحديثات (القسم ٣). وتأتي أسعار
+الصرف المرجعية اليومية من <strong>Exchange Rate API</strong> (exchangerate-api.com، النقطة
+المفتوحة): يحمل الطلب رمز عملة ولا شيء عنك (القسم ٢). وتقرأ <strong>Anthropic</strong> (Claude)
+صفحات الفاتورة حين تطلب ذلك (القسم ٢)، بصفتها معالجًا: تُرسل الصفحات لتلك القراءة فقط. وتسجيل
+الدخول بجوجل، إن اخترته، تحكمه شروط جوجل.</p>
 
-<h2>٥. الأمان</h2>
+<h2>٦. الأمان</h2>
 <p>قاعدة البيانات المحلية مشفَّرة (SQLCipher)، والمزامنة عبر TLS، ورموز المصادقة محفوظة في التخزين
 الآمن لجهازك (Keychain/Keystore)، والمصادقة الثنائية (TOTP) متاحة من الإعدادات.</p>
 
-<h2>٦. حقوقك</h2>
+<h2>٧. حقوقك</h2>
 <p>يمكنك حذف حسابك — ومعه كل ما هو مخزَّن على خوادمنا — من الإعدادات ← الحساب ← حذف الحساب،
 وتُمسح النسخة الموجودة على جهازك في الوقت نفسه. ويمكنك تصدير كل ما يحتفظ به فلكي لك في ملف واحد من
 الإعدادات ← بياناتك ← تصدير البيانات، أو طلب نسخة بمراسلتنا على البريد أدناه. نسعى لتنفيذ الطلبات خلال 30 يومًا.</p>
 
-<h2>٧. الأطفال</h2>
+<h2>٨. الأطفال</h2>
 <p>فلكي غير موجّه للأطفال دون 13 عامًا، ولا نجمع بياناتهم عن قصد.</p>
 
-<h2>٨. التغييرات والتواصل</h2>
+<h2>٩. التغييرات والتواصل</h2>
 <p>إذا تغيّرت هذه السياسة يتغيّر معها تاريخ «آخر تحديث» أعلاه، وتُعلَن التغييرات الجوهرية داخل
 التطبيق. للأسئلة والطلبات:
 <a href="mailto:hassan.bayo.dev@gmail.com">hassan.bayo.dev@gmail.com</a>.</p>

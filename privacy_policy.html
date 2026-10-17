@@ -39,6 +39,15 @@ to your own account, never sold, and never used for advertising.</p>
   <li><strong>Account data:</strong> your email address (and, if you sign in with Google, the basic
       profile Google shares for sign-in), used solely to create and secure your account. Passwords
       are handled by our authentication provider (Supabase Auth) and are never visible to us.</li>
+  <li><strong>Your Falaky profile and finding people (optional):</strong> a display name and, if you
+      choose one, a username — shown only to the people you link with, or who ask you to. You decide
+      whether others may find you by your exact username, your sign-in email or your phone number;
+      each is off until you turn it on, and nobody can browse people or search by part of a name.
+      If you add a phone number, we keep only a keyed one-way code of it (never the number itself)
+      to match an exact search, and its last two digits so you can see which number is set. Each
+      search records who searched, by what kind (username, email or phone) and whom it found —
+      never what was typed — to limit abuse (20 searches an hour). Linking a person to another
+      account waits for that person to accept, and either side can unlink at any time.</li>
   <li><strong>Your content:</strong> the financial records you create — accounts, transactions,
       categories, shared-expense groups, settlements, and the names of people you add. This content
       is stored <strong>encrypted on your device</strong> and synced to our backend (a Supabase
@@ -93,8 +102,8 @@ cookie — and the answer is cached on your device so estimates work offline.</p
 group expense: they stay <strong>on your device only</strong>, inside its encrypted database, and are
 never synced. The items you add (name, count, price, category) are part of your transactions and sync
 with them. In Falaky Vast and the test builds you can also have a bill’s items read for you: only
-when you tap “Send to Claude to read the items”, and only after you allow it once, that bill’s pages —
-and nothing else — go through our server to <strong>Anthropic</strong>’s Claude, which reads them and
+when you tap “Send to AI to read the items”, and only after you allow it once, that bill’s pages —
+and nothing else — go through our server to <strong>Anthropic</strong>’s AI service, which reads them and
 answers with the lines it found. Falaky does not keep the pages after the answer, and nothing from the
 vault or health is ever sent. You can withdraw this in Settings → Privacy.</p>
 
@@ -141,7 +150,7 @@ deletion covers what either app stored.</p>
 Falaky Vast is published on <strong>GitHub</strong>, which serves its downloads and its daily update
 check (section 3). Daily reference exchange rates come from <strong>Exchange Rate API</strong>
 (exchangerate-api.com, open endpoint): the request names a currency code and nothing about you
-(section 2). <strong>Anthropic</strong> (Claude) reads a bill’s pages when you ask for it (section 2),
+(section 2). <strong>Anthropic</strong> (its AI service) reads a bill’s pages when you ask for it (section 2),
 as a processor: the pages are sent for that reading only. Google sign-in, if you choose it, is
 governed by Google’s own terms.</p>
 
@@ -178,6 +187,14 @@ be announced in the app. Questions or requests:
   <li><strong>بيانات الحساب:</strong> بريدك الإلكتروني (وإن سجّلت الدخول بجوجل، الملف الأساسي الذي
       تشاركه جوجل لتسجيل الدخول)، وتُستخدم فقط لإنشاء حسابك وتأمينه. كلمات المرور يديرها مزوّد
       المصادقة (Supabase Auth) ولا نطّلع عليها أبدًا.</li>
+  <li><strong>ملفك في فلكي والعثور على الأشخاص (اختياري):</strong> اسم للعرض، واسم مستخدم إن اخترت
+      واحدًا — لا يراهما إلا من ترتبط بهم أو من يطلبون الارتباط بك. أنت من يقرر هل يمكن للآخرين
+      العثور عليك باسم المستخدم تمامًا أو ببريد تسجيل الدخول أو برقم هاتفك؛ وكلها مُطفأة حتى
+      تشغّلها، ولا يمكن لأحد تصفّح المستخدمين أو البحث بجزء من اسم. وإن أضفت رقم هاتف، لا نحتفظ إلا
+      بصيغة مُرمَّزة أحادية الاتجاه منه (لا الرقم نفسه) لمطابقة البحث التام، ومعها آخر رقمين لترى
+      أي رقم مُعدّ. ويُسجَّل لكل بحث من بحث وبأي نوع (اسم مستخدم أو بريد أو هاتف) ومن وجد — دون ما
+      كُتب أبدًا — للحد من إساءة الاستخدام (20 بحثًا في الساعة). وربط شخص بحساب آخر ينتظر قبول
+      ذلك الشخص، ويمكن لأي من الطرفين فكّ الارتباط في أي وقت.</li>
   <li><strong>محتواك:</strong> السجلات المالية التي تنشئها — الحسابات والمعاملات والفئات ومجموعات
       المصاريف المشتركة والتسويات وأسماء الأشخاص الذين تضيفهم. يُخزَّن هذا المحتوى
       <strong>مشفَّرًا على جهازك</strong> ويُزامَن إلى خادمنا (مشروع Supabase نديره) ليتبعك عبر
@@ -225,9 +242,9 @@ be announced in the app. Questions or requests:
 <p><strong>الفواتير وبنودها.</strong> يمكنك حفظ صور الفاتورة أو ملف PDF الخاص بها مع معاملة أو مصروف
 مجموعة: تبقى <strong>على جهازك فقط</strong> داخل قاعدة بياناته المشفّرة، ولا تُزامَن أبدًا. أما البنود التي
 تضيفها (الاسم والعدد والسعر والفئة) فهي جزء من معاملاتك وتُزامَن معها. وفي فلكي Vast ونسختي الاختبار
-يمكنك أيضًا طلب قراءة بنود الفاتورة: فقط حين تضغط «إرسالها إلى Claude لقراءة البنود»، وبعد أن تسمح
-بذلك مرة واحدة، تذهب صفحات تلك الفاتورة — ولا شيء غيرها — عبر خادمنا إلى Claude من
-<strong>Anthropic</strong>، الذي يقرؤها ويجيب بالبنود التي وجدها. لا يحتفظ فلكي بالصفحات بعد الإجابة،
+يمكنك أيضًا طلب قراءة بنود الفاتورة: فقط حين تضغط «إرسالها إلى الذكاء الاصطناعي لقراءة البنود»، وبعد أن تسمح
+بذلك مرة واحدة، تذهب صفحات تلك الفاتورة — ولا شيء غيرها — عبر خادمنا إلى خدمة الذكاء الاصطناعي من
+<strong>Anthropic</strong>، التي تقرؤها ويجيب بالبنود التي وجدها. لا يحتفظ فلكي بالصفحات بعد الإجابة،
 ولا يُرسل أي شيء من الخزنة أو الصحة أبدًا. ويمكنك سحب ذلك من الإعدادات ← الخصوصية.</p>
 
 <h2 id="vast-ar">٣. فلكي Vast</h2>
@@ -269,7 +286,7 @@ be announced in the app. Questions or requests:
 البيانات والمزامنة) و<strong>Sentry</strong> (تقارير الأعطال، بيانات تقنية فقط). ويُنشر فلكي Vast على
 <strong>GitHub</strong> الذي يقدّم تنزيلاته وتحققه اليومي من التحديثات (القسم ٣). وتأتي أسعار
 الصرف المرجعية اليومية من <strong>Exchange Rate API</strong> (exchangerate-api.com، النقطة
-المفتوحة): يحمل الطلب رمز عملة ولا شيء عنك (القسم ٢). وتقرأ <strong>Anthropic</strong> (Claude)
+المفتوحة): يحمل الطلب رمز عملة ولا شيء عنك (القسم ٢). وتقرأ <strong>Anthropic</strong> (خدمة الذكاء الاصطناعي)
 صفحات الفاتورة حين تطلب ذلك (القسم ٢)، بصفتها معالجًا: تُرسل الصفحات لتلك القراءة فقط. وتسجيل
 الدخول بجوجل، إن اخترته، تحكمه شروط جوجل.</p>
 

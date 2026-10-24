@@ -28,7 +28,7 @@
 <!-- ======================== ENGLISH ======================== -->
 <section class="lang" lang="en">
 <h1>Falaky — Privacy Policy</h1>
-<p class="updated">Last updated: 18 October 2026 · Applies to the Falaky Android, iOS, web and desktop apps, to Falaky Vast (section 3), and to the Falaky Staging and Falaky Dev test builds.</p>
+<p class="updated">Last updated: 23 October 2026 · Applies to the Falaky Android, iOS, web and desktop apps, to Falaky Vast (section 3), and to the Falaky Staging and Falaky Dev test builds.</p>
 
 <p>Falaky (فلكي) is a personal life-management app. Our design principle is simple:
 <strong>your data is yours.</strong> It is processed on your device wherever possible, synced only
@@ -118,6 +118,19 @@ and nothing else — go through our server to <strong>Anthropic</strong>’s AI 
 answers with the lines it found. Falaky does not keep the pages after the answer, and nothing from the
 vault or health is ever sent. You can withdraw this in Settings → Privacy.</p>
 
+<p><strong>Bank statements.</strong> In Falaky Vast and the test builds you can open your bank’s own
+statement files — spreadsheets, PDFs or photos of their pages — and Falaky reads them <strong>on your
+device</strong>; nothing of the file leaves it. When Falaky’s own readers cannot read part of a
+statement, you can ask AI: only when you tap Send, after you allow it once (separately from bills),
+and only what they could not read — the rows left unread and the descriptions nothing could place, or
+for a kind of file Falaky does not know its column headings and the shape of each column, never a
+value. Every number is masked on your device first: account, card and phone numbers become #1, #2…,
+and amounts become their shape (9,999.99). It goes through our server to <strong>Anthropic</strong>’s
+AI service, which answers which column or line holds what. Falaky does not keep what was sent; it
+keeps only how many tokens you used that month, to hold each account to its monthly limit. Your other
+transactions, other accounts, whole files, photos, the vault and health are never sent. You can
+withdraw this in Settings → Privacy.</p>
+
 <h2 id="vast">3. Falaky Vast</h2>
 <p>Falaky Vast is a build of Falaky <strong>distributed outside Google Play</strong>, by link from
 <a href="https://falaky.app/vast">falaky.app/vast</a>. It is the same app, with the same account, the
@@ -161,8 +174,9 @@ deletion covers what either app stored.</p>
 Falaky Vast is published on <strong>GitHub</strong>, which serves its downloads and its daily update
 check (section 3). Daily reference exchange rates come from <strong>Exchange Rate API</strong>
 (exchangerate-api.com, open endpoint): the request names a currency code and nothing about you
-(section 2). <strong>Anthropic</strong> (its AI service) reads a bill’s pages when you ask for it (section 2),
-as a processor: the pages are sent for that reading only. Google sign-in, if you choose it, is
+(section 2). <strong>Anthropic</strong> (its AI service) reads a bill’s pages, and the masked parts of a bank
+statement Falaky could not read, when you ask for it (section 2), as a processor: they are sent for
+that reading only. Google sign-in, if you choose it, is
 governed by Google’s own terms.</p>
 
 <h2>6. Security</h2>
@@ -188,7 +202,7 @@ be announced in the app. Questions or requests:
 <!-- ======================== ARABIC ======================== -->
 <section class="lang" lang="ar" dir="rtl">
 <h1>فلكي — سياسة الخصوصية</h1>
-<p class="updated">آخر تحديث: 18 أكتوبر 2026 · تسري على تطبيقات فلكي لأندرويد وiOS والويب وسطح المكتب، وعلى فلكي Vast (القسم ٣)، وعلى نسختي الاختبار Falaky Staging وFalaky Dev.</p>
+<p class="updated">آخر تحديث: 23 أكتوبر 2026 · تسري على تطبيقات فلكي لأندرويد وiOS والويب وسطح المكتب، وعلى فلكي Vast (القسم ٣)، وعلى نسختي الاختبار Falaky Staging وFalaky Dev.</p>
 
 <p>«فلكي» تطبيق شخصي لإدارة الحياة. مبدأنا بسيط: <strong>بياناتك ملكك.</strong> تُعالَج على جهازك
 كلما أمكن، ولا تُزامَن إلا إلى حسابك أنت، ولا تُباع أبدًا، ولا تُستخدم للإعلانات.</p>
@@ -266,6 +280,18 @@ be announced in the app. Questions or requests:
 <strong>Anthropic</strong>، التي تقرؤها ويجيب بالبنود التي وجدها. لا يحتفظ فلكي بالصفحات بعد الإجابة،
 ولا يُرسل أي شيء من الخزنة أو الصحة أبدًا. ويمكنك سحب ذلك من الإعدادات ← الخصوصية.</p>
 
+<p><strong>كشوف الحسابات البنكية.</strong> في فلكي Vast ونسختي الاختبار يمكنك فتح ملفات كشوف الحساب
+التي يصدرها بنكك — جداول أو ملفات PDF أو صور صفحاتها — ويقرؤها فلكي <strong>على جهازك</strong>؛ ولا
+يغادره شيء من الملف. وحين لا تستطيع قارئات فلكي نفسها قراءة جزء من كشف، يمكنك أن تسأل الذكاء
+الاصطناعي: فقط حين تضغط إرسال، وبعد أن تسمح بذلك مرة واحدة (منفصلةً عن الفواتير)، ولا يُرسل إلا ما لم
+تستطع قراءته — الصفوف التي بقيت دون قراءة والأوصاف التي لم يصنّفها شيء، أو لنوع ملف لا يعرفه فلكي
+عناوين أعمدته وشكل كل عمود، دون أي قيمة. ويُخفى كل رقم على جهازك أولًا: تصبح أرقام الحسابات
+والبطاقات والهواتف #1 و#2…، وتصبح المبالغ شكلها (9,999.99). ويذهب ذلك عبر خادمنا إلى خدمة الذكاء
+الاصطناعي من <strong>Anthropic</strong>، التي تجيب بما في كل عمود أو سطر. لا يحتفظ فلكي بما أُرسل؛ بل يحتفظ
+فقط بعدد الوحدات (tokens) التي استخدمتها ذلك الشهر، ليبقى كل حساب ضمن حدّه الشهري. ولا تُرسل أبدًا
+معاملاتك الأخرى ولا حساباتك الأخرى ولا الملفات كاملة ولا الصور ولا الخزنة ولا الصحة. ويمكنك سحب ذلك
+من الإعدادات ← الخصوصية.</p>
+
 <h2 id="vast-ar">٣. فلكي Vast</h2>
 <p>فلكي Vast نسخة من فلكي <strong>تُوزَّع خارج Google Play</strong>، برابط من
 <a href="https://falaky.app/vast">falaky.app/vast</a>. وهي التطبيق نفسه، بالحساب نفسه والبيانات نفسها
@@ -306,7 +332,8 @@ be announced in the app. Questions or requests:
 <strong>GitHub</strong> الذي يقدّم تنزيلاته وتحققه اليومي من التحديثات (القسم ٣). وتأتي أسعار
 الصرف المرجعية اليومية من <strong>Exchange Rate API</strong> (exchangerate-api.com، النقطة
 المفتوحة): يحمل الطلب رمز عملة ولا شيء عنك (القسم ٢). وتقرأ <strong>Anthropic</strong> (خدمة الذكاء الاصطناعي)
-صفحات الفاتورة حين تطلب ذلك (القسم ٢)، بصفتها معالجًا: تُرسل الصفحات لتلك القراءة فقط. وتسجيل
+صفحات الفاتورة، والأجزاء المُخفاة الأرقام من كشف الحساب التي لم يستطع فلكي قراءتها، حين تطلب ذلك
+(القسم ٢)، بصفتها معالجًا: تُرسل لتلك القراءة فقط. وتسجيل
 الدخول بجوجل، إن اخترته، تحكمه شروط جوجل.</p>
 
 <h2>٦. الأمان</h2>

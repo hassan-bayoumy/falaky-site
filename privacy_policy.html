@@ -28,7 +28,7 @@
 <!-- ======================== ENGLISH ======================== -->
 <section class="lang" lang="en">
 <h1>Falaky — Privacy Policy</h1>
-<p class="updated">Last updated: 25 October 2026 · Applies to the Falaky Android, iOS, web and desktop apps, to Falaky Vast (section 3), and to the Falaky Staging and Falaky Dev test builds.</p>
+<p class="updated">Last updated: 26 October 2026 · Applies to the Falaky Android, iOS, web and desktop apps, to Falaky Vast (section 3), and to the Falaky Staging and Falaky Dev test builds.</p>
 
 <p>Falaky (فلكي) is a personal life-management app. Our design principle is simple:
 <strong>your data is yours.</strong> It is processed on your device wherever possible, synced only
@@ -49,7 +49,11 @@ to your own account, never sold, and never used for advertising.</p>
       never what was typed — to limit abuse (20 searches an hour). Linking a person to another
       account waits for that person to accept, and either side can unlink at any time.</li>
   <li><strong>Your content:</strong> the financial records you create — accounts, transactions,
-      categories, shared-expense groups, settlements, and the names of people you add. This content
+      categories, shared-expense groups, settlements, and the people you add (their names, and an
+      email or phone number if you enter one) — and what you keep in Time: tasks, habits and their
+      check-ins, and reminders, with their notes. It also includes your vehicles with their odometer
+      and fuel records, your saved views, and a timeline of what you do in the app (which part, what
+      kind of action, when) that ties them together. This content
       is stored <strong>encrypted on your device</strong> and synced to our backend (a Supabase
       project we operate) so it follows you across your devices. Server-side access is isolated per
       user: our database enforces row-level security so an account can only ever read its own rows —
@@ -99,8 +103,10 @@ confirm a suggestion, its full text is kept <strong>on that device only</strong>
 transaction it became, so you can read it again there; it is deleted with the transaction, and a
 dismissed suggestion's text is deleted for good after 30 days. The details read from the message —
 such as the sender, the card ending shown, the merchant, the payment method, the place and the
-limit stated — are saved with the transaction and synced like the rest of your content. Every
-suggested transaction requires your explicit confirmation before it enters your records.</p>
+limit stated — are saved with the transaction and synced like the rest of your content. In the
+Falaky app from Google Play, every suggested transaction requires your explicit confirmation before
+it enters your records. Falaky Vast and Falaky Dev can also add a payment they find by themselves,
+marked “Needs review” for you to check — you can turn that off in Settings → Transaction import.</p>
 <p><strong>Purchases in another currency.</strong> When a bank message states only the foreign
 amount, Falaky estimates what your bank will charge from a rate and the fees you entered for the
 account, marks it “≈ est.”, and replaces it when the bank's own figure is known. The rate comes
@@ -132,16 +138,22 @@ transactions, other accounts, whole files, photos, the vault and health are neve
 withdraw this in Settings → Privacy.</p>
 
 <p><strong>AI help with categories.</strong> In Falaky Vast and the test builds, when Falaky imports a
-payment at a place whose category it cannot tell, it can ask AI which of your categories fits — only
-after you turn on “AI help with categories” in Settings → Privacy, separately from bills and statements.
-Then, when the app or the Review screen opens, it sends the names of such places as the bank’s message
-wrote them, with every run of four or more digits hidden on your device first; whether money went out
-or came in; and the names of your categories. Each place is asked about once. It goes through our server
-to <strong>Anthropic</strong>’s AI service, which answers which category fits; the answer is marked on
-the transaction for you to check. Amounts, accounts, card numbers, the messages themselves, people,
-dates, the vault and health are never sent. Falaky does not keep what was sent on its server — only how
-many tokens you used that month, shared with reading statements under one monthly limit; the places
-asked about are listed on your device in Settings → Privacy. You can turn this off there at any time.</p>
+payment at a place whose category it cannot tell — and you never categorized a payment there yourself —
+it can ask AI which category fits — only after you turn on “AI help with categories” in Settings →
+Privacy, separately from bills and statements. Then, when the app or the Review screen opens, it sends
+the names of such places as the bank’s message wrote them, with every run of four or more digits hidden
+on your device first, and whether money went out or came in. Each place is asked about once; a later
+payment there takes the same answer on your device. It goes through our server to
+<strong>Anthropic</strong>’s AI service, which answers which of Falaky’s own categories fits; the answer
+goes on the matching category of yours and is marked on the transaction for you to check. Amounts,
+accounts, card numbers, the messages themselves, people, dates, your category names, the vault and
+health are never sent. When AI is sure of a place money went out to, our server keeps the place’s name
+(digits hidden) and that category in a list shared by everyone who uses this feature, with nothing that
+links them to you or to when you paid, so that place is answered from the list without asking AI again —
+always as an answer to check. Money received and answers AI was not sure of are never kept. Falaky keeps
+nothing else on its server — only how many tokens you used that month, shared with reading statements
+under one monthly limit; the places asked about are listed on your device in Settings → Privacy. You can
+turn this off there at any time; the shared list holds nothing that identifies you.</p>
 
 <h2 id="vast">3. Falaky Vast</h2>
 <p>Falaky Vast is a build of Falaky <strong>distributed outside Google Play</strong>, by link from
@@ -215,7 +227,7 @@ be announced in the app. Questions or requests:
 <!-- ======================== ARABIC ======================== -->
 <section class="lang" lang="ar" dir="rtl">
 <h1>فلكي — سياسة الخصوصية</h1>
-<p class="updated">آخر تحديث: 25 أكتوبر 2026 · تسري على تطبيقات فلكي لأندرويد وiOS والويب وسطح المكتب، وعلى فلكي Vast (القسم ٣)، وعلى نسختي الاختبار Falaky Staging وFalaky Dev.</p>
+<p class="updated">آخر تحديث: 26 أكتوبر 2026 · تسري على تطبيقات فلكي لأندرويد وiOS والويب وسطح المكتب، وعلى فلكي Vast (القسم ٣)، وعلى نسختي الاختبار Falaky Staging وFalaky Dev.</p>
 
 <p>«فلكي» تطبيق شخصي لإدارة الحياة. مبدأنا بسيط: <strong>بياناتك ملكك.</strong> تُعالَج على جهازك
 كلما أمكن، ولا تُزامَن إلا إلى حسابك أنت، ولا تُباع أبدًا، ولا تُستخدم للإعلانات.</p>
@@ -234,7 +246,10 @@ be announced in the app. Questions or requests:
       كُتب أبدًا — للحد من إساءة الاستخدام (20 بحثًا في الساعة). وربط شخص بحساب آخر ينتظر قبول
       ذلك الشخص، ويمكن لأي من الطرفين فكّ الارتباط في أي وقت.</li>
   <li><strong>محتواك:</strong> السجلات المالية التي تنشئها — الحسابات والمعاملات والفئات ومجموعات
-      المصاريف المشتركة والتسويات وأسماء الأشخاص الذين تضيفهم. يُخزَّن هذا المحتوى
+      المصاريف المشتركة والتسويات والأشخاص الذين تضيفهم (أسماؤهم، وبريد أو رقم هاتف إن أدخلته لهم) —
+      وما تحفظه في «الوقت»: المهام والعادات وسجلّ إنجازها والتذكيرات، مع ملاحظاتها. ويشمل كذلك مركباتك
+      مع قراءات عدّاد المسافة وسجلّات الوقود، والعروض المحفوظة، وسجلًّا زمنيًا لما تفعله في التطبيق (أيّ
+      قسم، ونوع الإجراء، ومتى) يربط بينها. يُخزَّن هذا المحتوى
       <strong>مشفَّرًا على جهازك</strong> ويُزامَن إلى خادمنا (مشروع Supabase نديره) ليتبعك عبر
       أجهزتك. والوصول على الخادم معزول لكل مستخدم: قاعدة البيانات تفرض أمان مستوى الصفوف بحيث لا
       يقرأ أي حساب إلا صفوفه هو — وصفوف المجموعة التي تشاركها، كما يلي.</li>
@@ -277,7 +292,9 @@ be announced in the app. Questions or requests:
 <strong>على ذلك الجهاز فقط</strong> مع المعاملة التي صار إليها، لتقرأه هناك مجددًا؛ ويُحذف مع
 المعاملة، ويُحذف نص الاقتراح الذي تجاهلته نهائيًا بعد 30 يومًا. أما التفاصيل المقروءة من الرسالة —
 كالمرسل وآخر أرقام البطاقة الظاهرة والتاجر وطريقة الدفع والمكان والحد المذكور — فتُحفظ مع المعاملة
-وتُزامَن كبقية محتواك. وكل معاملة مقترحة تتطلب تأكيدك الصريح قبل دخولها سجلاتك.</p>
+وتُزامَن كبقية محتواك. وفي تطبيق فلكي من Google Play تتطلب كل معاملة مقترحة تأكيدك الصريح قبل دخولها
+سجلاتك؛ أما فلكي Vast ونسخة Falaky Dev فيمكنهما أيضًا إضافة الدفعة التي تجدانها بنفسيهما، وتَسِمانها
+بـ«تحتاج مراجعة» لتراجعها — ويمكنك إيقاف ذلك من الإعدادات ← استيراد المعاملات.</p>
 <p><strong>المشتريات بعملة أخرى.</strong> حين تذكر رسالة البنك المبلغ الأجنبي فقط، يقدّر فلكي ما
 سيخصمه بنكك من سعر صرف ومن الرسوم التي أدخلتها للحساب، ويعلّمه «≈ تقديري»، ويستبدله برقم البنك
 عند معرفته. يأتي السعر أولًا من رسائلك السابقة على جهازك؛ وإلا يسأل فلكي خدمة أسعار مرجعية عامة
@@ -306,15 +323,21 @@ be announced in the app. Questions or requests:
 من الإعدادات ← الخصوصية.</p>
 
 <p><strong>مساعدة الذكاء الاصطناعي في الفئات.</strong> في فلكي Vast ونسختي الاختبار، حين يستورد فلكي
-دفعة في مكان لا يعرف فئته، يمكنه أن يسأل الذكاء الاصطناعي أيّ فئاتك تناسبه — فقط بعد أن تشغّل «مساعدة
-الذكاء الاصطناعي في الفئات» من الإعدادات ← الخصوصية، منفصلةً عن الفواتير والكشوف. وعندها، حين يُفتح
-التطبيق أو شاشة المراجعة، يُرسل أسماء تلك الأماكن كما كتبتها رسالة البنك، بعد إخفاء كل سلسلة من أربعة
-أرقام أو أكثر على جهازك أولًا؛ وهل خرج المال أم دخل؛ وأسماء فئاتك. ويُسأل عن كل مكان مرة واحدة. ويذهب
-ذلك عبر خادمنا إلى خدمة الذكاء الاصطناعي من <strong>Anthropic</strong>، التي تجيب بالفئة المناسبة؛
-وتُعلَّم الإجابة على المعاملة لتراجعها. ولا تُرسل أبدًا المبالغ ولا الحسابات ولا أرقام البطاقات ولا الرسائل
-نفسها ولا الأشخاص ولا التواريخ ولا الخزنة ولا الصحة. ولا يحتفظ فلكي على خادمه بما أُرسل — بل فقط بعدد
+دفعة في مكان لا يعرف فئته — ولم تصنّف أنت دفعةً فيه من قبل — يمكنه أن يسأل الذكاء الاصطناعي أيّ فئة تناسبه
+— فقط بعد أن تشغّل «مساعدة الذكاء الاصطناعي في الفئات» من الإعدادات ← الخصوصية، منفصلةً عن الفواتير
+والكشوف. وعندها، حين يُفتح التطبيق أو شاشة المراجعة، يُرسل أسماء تلك الأماكن كما كتبتها رسالة البنك،
+بعد إخفاء كل سلسلة من أربعة أرقام أو أكثر على جهازك أولًا، وهل خرج المال أم دخل. ويُسأل عن كل مكان مرة
+واحدة؛ وتأخذ الدفعة التالية هناك الإجابة نفسها على جهازك. ويذهب ذلك عبر خادمنا إلى خدمة الذكاء
+الاصطناعي من <strong>Anthropic</strong>، التي تجيب بأيّ فئات فلكي نفسها تناسبه؛ فتُوضع الإجابة على
+فئتك المطابقة وتُعلَّم على المعاملة لتراجعها. ولا تُرسل أبدًا المبالغ ولا الحسابات ولا أرقام البطاقات
+ولا الرسائل نفسها ولا الأشخاص ولا التواريخ ولا أسماء فئاتك ولا الخزنة ولا الصحة. وحين يكون الذكاء
+الاصطناعي واثقًا من مكانٍ خرج إليه المال، يحتفظ خادمنا باسم المكان (مُخفى الأرقام) وتلك الفئة في قائمة
+مشتركة بين كل من يستخدم هذه الميزة، بلا ما يربطهما بك أو بوقت دفعك، فيُجاب عن ذلك المكان من القائمة
+دون سؤال الذكاء الاصطناعي مرة أخرى — دائمًا كإجابة تراجعها. ولا يُحتفظ أبدًا بالمال الوارد ولا
+بالإجابات التي لم يكن الذكاء الاصطناعي واثقًا منها. ولا يحتفظ فلكي على خادمه بغير ذلك — إلا بعدد
 الوحدات (tokens) التي استخدمتها ذلك الشهر، ضمن حدّ شهري واحد مشترك مع قراءة الكشوف؛ وتُعرض الأماكن
-التي سُئل عنها على جهازك في الإعدادات ← الخصوصية. ويمكنك إيقاف ذلك من هناك في أي وقت.</p>
+التي سُئل عنها على جهازك في الإعدادات ← الخصوصية. ويمكنك إيقاف ذلك من هناك في أي وقت؛ ولا تحوي
+القائمة المشتركة ما يدلّ عليك.</p>
 
 <h2 id="vast-ar">٣. فلكي Vast</h2>
 <p>فلكي Vast نسخة من فلكي <strong>تُوزَّع خارج Google Play</strong>، برابط من

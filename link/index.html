@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="/link/">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The page's address holds a link's token after #: no referrer ever leaves
+       it, and no search engine keeps it (T0296, T0297). -->
+  <meta name="referrer" content="no-referrer">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#0B0D1A">
+  <title>Falakna · فلكنا</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <style>
+    html, body { height: 100%; margin: 0; background: #0B0D1A; }
+    #splash {
+      position: fixed; inset: 0; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 12px;
+      color: #E8E6F5; font: 500 18px system-ui, sans-serif;
+    }
+    #splash i {
+      width: 10px; height: 10px; border-radius: 50%; background: #F5B183;
+      animation: glow 1.4s ease-in-out infinite alternate;
+    }
+    @keyframes glow { from { opacity: .35; } to { opacity: 1; } }
+    @media (prefers-reduced-motion: reduce) { #splash i { animation: none; } }
+  </style>
+</head>
+<body>
+  <div id="splash"><i></i><span id="splash-word">Falakna</span></div>
+  <script>
+    // Before anything of Flutter has arrived: the page's first words, in the
+    // browser's language.
+    if ((navigator.language || '').toLowerCase().startsWith('ar')) {
+      document.documentElement.lang = 'ar';
+      document.documentElement.dir = 'rtl';
+      document.getElementById('splash-word').textContent = 'فلكنا';
+    }
+    // Another link pasted over this one changes only what follows the #.
+    window.addEventListener('hashchange', function () { location.reload(); });
+    window.addEventListener('flutter-first-frame', function () {
+      document.getElementById('splash').remove();
+    });
+  </script>
+  <script src="flutter_bootstrap.js" async></script>
+</body>
+</html>

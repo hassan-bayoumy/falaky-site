@@ -30,10 +30,12 @@
   <div id="splash"><i></i><span id="splash-word">Falakna</span></div>
   <script>
     // Before anything of Flutter has arrived: the page's first words, in the
-    // browser's language.
+    // browser's language. The direction is the splash's alone: Flutter lays
+    // out its own, and places its screen reader's nodes by transform from
+    // where an RTL document would start them, the far edge (T0320).
     if ((navigator.language || '').toLowerCase().startsWith('ar')) {
       document.documentElement.lang = 'ar';
-      document.documentElement.dir = 'rtl';
+      document.getElementById('splash').dir = 'rtl';
       document.getElementById('splash-word').textContent = 'فلكنا';
     }
     // Another link pasted over this one changes only what follows the #.
